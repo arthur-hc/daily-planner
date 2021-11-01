@@ -23,7 +23,7 @@ const login = async (req, res) => {
   const { error } = response;
 
   if (error) {
-    return res.status(UNAUTHORIZED).json(err);
+    return res.status(UNAUTHORIZED).json(error);
   }
 
   return res.status(OK).json(response);

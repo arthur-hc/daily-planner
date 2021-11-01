@@ -5,8 +5,9 @@ module.exports = (req, res, next) => {
   const userData = req.body;
 
   const { error } = Joi.object({
-    email: Joi.string().email().not().empty().required(),
-    password: Joi.string().email().not().empty().required(),
+    email: Joi.string().email().not().empty()
+.required(),
+    password: Joi.not().empty().required(),
   }).validate(userData);
 
   if (error) {
