@@ -1,6 +1,6 @@
-const usersService = require('../services/usersService');
+// const usersService = require('../services/usersService');
 const { CREATED } = require('http-status');
-const { invalidEntries, emailInUse } = require('../helpers/errors');
+// const { invalidEntries, emailInUse } = require('../helpers/errors');
 
 const register = async (req, res) => {
 

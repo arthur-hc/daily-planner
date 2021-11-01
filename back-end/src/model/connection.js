@@ -1,9 +1,9 @@
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
-const MONGO_DB_URL = `mongodb://${process.env.HOST || 'mongodb'}:27017/Cookmaster`;
+const MONGO_DB_URL = 'mongodb://localhost:27017/dailyplanner';
 
-const DB_NAME = 'Cookmaster';
+const DB_NAME = 'dailyplanner';
 
 let schema = null;
 
