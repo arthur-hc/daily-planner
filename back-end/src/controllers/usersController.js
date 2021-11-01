@@ -29,20 +29,6 @@ const login = async (req, res) => {
   return res.status(OK).json(response);
 };
 
-const login = async (req, res) => {
-  const { email, password } = req.body;
-
-  const response = await usersService.login({ email, password });
-
-  const { error } = response;
-
-  if (error) {
-    return res.status(UNAUTHORIZED).json(error);
-  }
-
-  return res.status(OK).json(response);
-};
-
 module.exports = {
   register,
   login,
