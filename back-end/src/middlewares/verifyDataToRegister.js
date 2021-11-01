@@ -3,7 +3,7 @@ const { UNPROCESSABLE_ENTITY } = require('http-status');
 
 module.exports = (req, res, next) => {
 
-  const data = req.body;
+  const userData = req.body;
 
   const { error } = Joi.object({
     email: Joi.string().email().not().empty()
@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
     nome: Joi.string().not().empty()
     .required(),
 
-  }).validate(data);
+  }).validate(userData);
 
   if (error) {
     return res.status(UNPROCESSABLE_ENTITY).json({ message: error.details[0].message });
