@@ -4,6 +4,8 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/', (_req, res) => res.status(200).send('Its working!'))
+app.get('/', (_req, res) => res.status(200).send('Its working!'));
+
+app.use('/register', require('./routes/registerRoutes'));
 
 module.exports = app;
