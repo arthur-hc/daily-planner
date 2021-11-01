@@ -14,8 +14,9 @@ const register = async (userData) => {
   return response;
 };
 
-const login = async (loginData) => {
-  const { email, password } = loginData;
+const login = async (dataToLogin) => {
+  const { email, password } = dataToLogin;
+
   const userData = await usersModel.findUserByEmail(email);
   
   if (!userData || userData.password !== password) {

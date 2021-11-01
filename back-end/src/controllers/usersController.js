@@ -12,7 +12,21 @@ const register = async (req, res) => {
     return res.status(CONFLICT).json(error);
   }
 
-  return res.status(CREATED).send(response);
+  return res.status(CREATED).json(response);
+};
+
+const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  const response = await usersService.login({ email, password });
+
+  const { error } = response;
+
+  if (error) {
+    return res.status(UNAUTHORIZED).json(error);
+  }
+
+  return res.status(OK).json(response);
 };
 
 const login = async (req, res) => {

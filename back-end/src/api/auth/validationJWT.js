@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
+const { UNAUTHORIZED } = require('http-status');
 const { findUserByEmail } = require('../../model/usersModel');
-const { UNAUTHORIZED } = require('http-status')
 const { jwtMalformed, missingAuthToken } = require('../../helpers/errors');
 
 const secret = require('../../helpers/secretKey');
