@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./back-end/node_modules/cz-conventional-changelog"
+    }
+  }
+}
