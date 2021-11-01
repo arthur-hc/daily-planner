@@ -8,6 +8,6 @@ app.get('/', (_req, res) => res.status(200).send('Its working!'));
 
 app.use('/register', require('./routes/registerRoutes'));
 
-app.use('/register', require('./routes/loginRoutes'));
+app.use('/login', require('./routes/loginRoutes'));
 
 module.exports = app;
