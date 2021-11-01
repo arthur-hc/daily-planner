@@ -1,6 +1,6 @@
 const express = require('express');
 const usersController = require('../../controllers/usersController');
-const { verifyDataToRegister } = require('../../middlewares')
+const { verifyDataToRegister } = require('../../middlewares');
 
 const router = express.Router();
 
