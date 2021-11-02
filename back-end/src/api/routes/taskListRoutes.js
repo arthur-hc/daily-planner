@@ -9,7 +9,7 @@ router.post('/', validationJWT, verifyTaskListName, taskListController.create);
 
 router.get('/', validationJWT, taskListController.getAllTaskListsByUser);
 
-// router.get('/:id', validationJWT, verifyTaskListName, taskListController.getTaskListById);
+router.get('/:id', verifyIdFormat, validationJWT, taskListController.getTaskListById);
 
 router.put('/:id/updatetasks',
   verifyIdFormat,

@@ -1,5 +1,5 @@
 const taskListModel = require('../model/taskListModel');
-const { onlyCreatorEdit, onlyCreatorDelete } = require('../helpers/errors');
+const { onlyCreatorEdit, onlyCreatorDelete, onlyCreatorSee } = require('../helpers/errors');
 const initalTaskList = require('../helpers/initalTaskList');
 const { isSameId } = require('../validations/index');
 
@@ -63,10 +63,21 @@ const getAllTaskListsByUser = async (id) => {
   return response;
 };
 
+const getTaskListById = async (userId, taskListId) => {
+  const taskList = await taskListModel.getTaskListById(taskListId);
+  
+  if (!taskList || !isSameId(userId, taskList.author)) {
+    return { error: { message: onlyCreatorSee } };
+  }
+
+  return taskList;
+};
+
 module.exports = {
   create,
   updateTasksById,
   renameTaskListById,
   deleteTaskListById,
   getAllTaskListsByUser,
+  getTaskListById,
 };

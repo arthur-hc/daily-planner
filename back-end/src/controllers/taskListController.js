@@ -57,10 +57,25 @@ const getAllTaskListsByUser = async (req, res) => {
   return res.status(OK).json(response);
 };
 
+const getTaskListById = async (req, res) => {
+  const { _id } = req.userData;
+  const taskListId = req.params.id;
+  const response = await taskListService.getTaskListById(_id, taskListId);
+
+  const { error } = response;
+
+  if (error) {
+    return res.status(UNAUTHORIZED).json(error);
+  }
+
+  return res.status(OK).json(response);
+};
+
 module.exports = {
   create,
   updateTasksById,
   renameTaskListById,
   deleteTaskListById,
   getAllTaskListsByUser,
+  getTaskListById,
 };
