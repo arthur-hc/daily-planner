@@ -5,7 +5,7 @@ const { verifyTaskListData, verifyIdFormat, verifyTaskListName } = require('../.
 
 const router = express.Router();
 
-router.post('/', validationJWT, verifyTaskListName, taskListController.create);
+router.post('/', validationJWT, verifyTaskListName, taskListController.createTaskList);
 
 router.get('/', validationJWT, taskListController.getAllTaskListsByUser);
 
