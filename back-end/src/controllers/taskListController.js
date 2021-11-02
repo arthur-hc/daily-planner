@@ -37,8 +37,22 @@ const renameTaskListById = async (req, res) => {
   return res.status(OK).json(response);
 };
 
+const deleteTaskListById = async (req, res) => {
+  const { userData } = req;
+  const taskListId = req.params.id;
+  const response = await taskListService.deleteTaskListById(userData, taskListId);
+
+  const { error } = response;
+
+  if (error) {
+    return res.status(UNAUTHORIZED).json(error);
+  }
+  return res.status(OK).json(response);
+};
+
 module.exports = {
   create,
   updateTasksById,
   renameTaskListById,
+  deleteTaskListById,
 };
