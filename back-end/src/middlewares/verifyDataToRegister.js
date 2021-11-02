@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
   const userData = req.body;
 
   const { error } = Joi.object({
-    nome: Joi.string().not().empty().required(),
+    name: Joi.string().not().empty().required(),
     email: Joi.string().email().not().empty()
 .required(),
     password: Joi.string().min(6).pattern(/^(?=.*[a-zA-Z])(?=.*[0-9])/).not()
