@@ -6,3 +6,4 @@ Este projeto visa entregar uma solução para o problema dado no desafio e teste
 A aplicação estará divida em duas partes:
 * Front-end: desenvolvido em React.js.
 * Back-end: desenvolvida em Node.js utilizando MongoDB como banco de dados.
+
