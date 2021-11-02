@@ -13,7 +13,7 @@ const getAllTaskListsByUser = async (id) => {
   return user;
 };
 
-const create = async (listData) => {
+const createTaskList = async (listData) => {
   const db = await mongoConnection.getConnection();
   const response = await db.collection('taskList').insertOne(listData);
   return response;
@@ -42,7 +42,7 @@ const deleteTaskListById = async (id) => {
 
 module.exports = {
   getTaskListById,
-  create,
+  createTaskList,
   updateTasksById,
   renameTaskListById,
   deleteTaskListById,

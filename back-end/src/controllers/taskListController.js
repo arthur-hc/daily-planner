@@ -1,7 +1,7 @@
 const { CREATED, UNAUTHORIZED, OK } = require('http-status');
 const taskListService = require('../services/taskListService');
 
-const create = async (req, res) => {
+const createTaskList = async (req, res) => {
   const { _id } = req.userData;
   const { taskListName } = req.body;
   const response = await taskListService.create(_id, taskListName);
@@ -72,7 +72,7 @@ const getTaskListById = async (req, res) => {
 };
 
 module.exports = {
-  create,
+  createTaskList,
   updateTasksById,
   renameTaskListById,
   deleteTaskListById,
