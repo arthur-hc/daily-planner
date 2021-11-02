@@ -1,5 +1,5 @@
 const taskListModel = require('../model/taskListModel');
-const { onlyCreatorEdit } = require('../helpers/errors');
+const { onlyCreatorEdit, onlyCreatorDelete } = require('../helpers/errors');
 const initalTaskList = require('../helpers/initalTaskList');
 const { isSameId } = require('../validations/index');
 
@@ -42,8 +42,24 @@ const renameTaskListById = async (userData, taskListId, taskListName) => {
   return { ...taskListToEdit, taskListName };
 };
 
+const deleteTaskListById = async (userData, taskListId) => {
+  const { _id } = userData;
+  const userId = _id;
+
+  const taskListToEdit = await taskListModel.findTaskListById(taskListId);
+  
+  if (!taskListToEdit || !isSameId(userId, taskListToEdit.author)) {
+    return { error: { message: onlyCreatorDelete } };
+  }
+
+  await taskListModel.deleteTaskListById(taskListId);
+
+  return { ...taskListToEdit };
+};
+
 module.exports = {
   create,
   updateTasksById,
-  renameTaskListById
+  renameTaskListById,
+  deleteTaskListById,
 };

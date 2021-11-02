@@ -27,9 +27,17 @@ const renameTaskListById = async (id, taskListName) => {
   return response;
 };
 
+const deleteTaskListById = async (id) => {
+  const db = await mongoConnection.getConnection();
+  const response = await db.collection('taskList')
+  .deleteOne({ _id: ObjectId(id) });
+  return response;
+};
+
 module.exports = {
   findTaskListById,
   create,
   updateTasksById,
   renameTaskListById,
+  deleteTaskListById,
 };

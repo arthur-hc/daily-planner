@@ -19,4 +19,9 @@ router.put('/:id/rename',
   verifyTaskListName,
   taskListController.renameTaskListById);
 
+router.delete('/:id',
+  verifyIdFormat,
+  validationJWT,
+  taskListController.deleteTaskListById);
+
 module.exports = router;
