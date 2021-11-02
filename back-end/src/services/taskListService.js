@@ -4,7 +4,7 @@ const initalTaskList = require('../helpers/initalTaskList');
 const { isSameId } = require('../validations/index');
 
 const create = async (author, taskListName) => {
-  const listData = { author, taskListName, initalTaskList};
+  const listData = { author, taskListName, tasks: initalTaskList};
 
   const response = await taskListModel.create(listData);
   
