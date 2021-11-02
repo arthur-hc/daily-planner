@@ -1,8 +1,11 @@
 const taskListModel = require('../model/taskListModel');
 const { onlyCreatorEdit } = require('../helpers/errors');
+const initalTaskList = require('../helpers/initalTaskList');
 const { isSameId } = require('../validations/index');
 
-const create = async (listData) => {
+const create = async (author, taskListName) => {
+  const listData = { author, taskListName, initalTaskList};
+
   const response = await taskListModel.create(listData);
   
   return response;

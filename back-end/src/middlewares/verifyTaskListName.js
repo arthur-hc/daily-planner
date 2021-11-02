@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
   const taskListData = req.body;
 
   const { error } = Joi.object({
-    TaskListName: Joi.string().not().empty()
+    taskListName: Joi.string().not().empty()
     .required(),
   }).validate(taskListData);
 
