@@ -17,7 +17,7 @@ const updateTasksById = async (userData, taskListId, tasksListData) => {
   // I USE THE SAME MESSAGE TO DON'T TELL TO REQUEST IF THIS ID RELLY EXISTS OR NOT AND IMPROVE MY SECURITY
   if (!taskListToEdit || !isSameId(userId, taskListToEdit.author)) {
     return { error: { message: onlyCreatorEdit } };
-  };
+  }
 
   await taskListModel.updateTasksById(taskListId, tasksListData);
 
