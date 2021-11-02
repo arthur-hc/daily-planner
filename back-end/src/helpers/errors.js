@@ -7,7 +7,8 @@ module.exports = {
   jwtMalformed: 'jwt malformed',
   recipeNotFound: 'recipe not found',
   onlyCreatorEdit: 'only the creator has permission to edit',
-  missingAuthToken: 'missing auth token',
+  onlyCreatorSee: 'only the creator has permission to see',
   onlyCreatorDelete: 'only the creator has permission to delete',
   onlyAdminsRegister: 'Only admins can register new admins',
+  missingAuthToken: 'missing auth token',
 };
