@@ -27,7 +27,23 @@ const updateTasksById = async (userData, taskListId, tasksListData) => {
   return { ...taskListToEdit, tasks: tasksListData };
 };
 
+const renameTaskListById = async (userData, taskListId, taskListName) => {
+  const { _id } = userData;
+  const userId = _id;
+
+  const taskListToEdit = await taskListModel.findTaskListById(taskListId);
+  
+  if (!taskListToEdit || !isSameId(userId, taskListToEdit.author)) {
+    return { error: { message: onlyCreatorEdit } };
+  }
+
+  await taskListModel.renameTaskListById(taskListId, taskListName);
+
+  return { ...taskListToEdit, taskListName };
+};
+
 module.exports = {
   create,
   updateTasksById,
+  renameTaskListById
 };

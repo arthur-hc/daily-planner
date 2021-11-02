@@ -7,10 +7,16 @@ const router = express.Router();
 
 router.post('/', validationJWT, verifyTaskListName, taskListController.create);
 
-router.put('/:id',
+router.put('/:id/updatetasks',
   verifyIdFormat,
   validationJWT,
   verifyTaskListData,
   taskListController.updateTasksById);
+
+router.put('/:id/rename',
+  verifyIdFormat,
+  validationJWT,
+  verifyTaskListName,
+  taskListController.renameTaskListById);
 
 module.exports = router;

@@ -6,10 +6,10 @@ app.use(express.json());
 
 app.get('/', (_req, res) => res.status(200).send('Its working!'));
 
-app.use('/register', require('./routes/registerRoutes'));
+app.use('/api/register', require('./routes/registerRoutes'));
 
-app.use('/login', require('./routes/loginRoutes'));
+app.use('/api/login', require('./routes/loginRoutes'));
 
-app.use('/tasklist', require('./routes/taskListRoutes'));
+app.use('/api/tasklist', require('./routes/taskListRoutes'));
 
 module.exports = app;
