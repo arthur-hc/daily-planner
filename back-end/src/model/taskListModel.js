@@ -1,9 +1,15 @@
 const { ObjectId } = require('mongodb');
 const mongoConnection = require('./connection');
 
-const findTaskListById = async (id) => {
+const getTaskListById = async (id) => {
   const db = await mongoConnection.getConnection();
   const user = await db.collection('taskList').findOne({ _id: ObjectId(id) });
+  return user;
+};
+
+const getAllTaskListsByUser = async (id) => {
+  const db = await mongoConnection.getConnection();
+  const user = await db.collection('taskList').find({ author: ObjectId(id) }).toArray();
   return user;
 };
 
@@ -35,9 +41,10 @@ const deleteTaskListById = async (id) => {
 };
 
 module.exports = {
-  findTaskListById,
+  getTaskListById,
   create,
   updateTasksById,
   renameTaskListById,
   deleteTaskListById,
+  getAllTaskListsByUser,
 };

@@ -7,6 +7,10 @@ const router = express.Router();
 
 router.post('/', validationJWT, verifyTaskListName, taskListController.create);
 
+router.get('/', validationJWT, taskListController.getAllTaskListsByUser);
+
+// router.get('/:id', validationJWT, verifyTaskListName, taskListController.getTaskListById);
+
 router.put('/:id/updatetasks',
   verifyIdFormat,
   validationJWT,
