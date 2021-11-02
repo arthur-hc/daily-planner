@@ -6,7 +6,7 @@ const { isSameId } = require('../validations/index');
 const createTaskList = async (author, taskListName) => {
   const listData = { author, taskListName, tasks: initalTaskList };
 
-  const response = await taskListModel.create(listData);
+  const response = await taskListModel.createTaskList(listData);
   
   return response;
 };
