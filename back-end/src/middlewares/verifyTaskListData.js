@@ -1,6 +1,5 @@
 const Joi = require('joi');
 const { BAD_REQUEST } = require('http-status');
-const { invalidEntries } = require('../helpers/errors');
 
 module.exports = (req, res, next) => {
   const taskListData = req.body;

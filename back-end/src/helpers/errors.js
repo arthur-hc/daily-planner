@@ -1,5 +1,6 @@
 module.exports = {
   invalidEntries: 'Invalid entries. Try again.',
+  invalidId: 'Invalid Id. Try again.',
   emailInUse: 'Email already registered',
   emptyLoginFields: 'All fields must be filled',
   incorrectUserOrPass: 'Incorrect username or password',

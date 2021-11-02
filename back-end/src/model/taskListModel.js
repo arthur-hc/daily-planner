@@ -13,7 +13,15 @@ const create = async (listData) => {
   return response;
 };
 
+const updateTasksById = async (id, taskData) => {
+  const db = await mongoConnection.getConnection();
+  const response = await db.collection('taskList')
+  .updateOne({ _id: ObjectId(id) }, { $set: { tasks: taskData } });
+  return response;
+};
+
 module.exports = {
   findTaskListById,
   create,
+  updateTasksById,
 };
