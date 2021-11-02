@@ -13,9 +13,8 @@ const update = async (userData, taskListId, tasksListData) => {
   const userId = _id;
 
   const taskListToEdit = await taskListModel.findTaskListById(taskListId);
-  const createdBy = taskListToEdit.author;
   
-  if (!isSameId(userId, createdBy)) {
+  if (!taskListToEdit || !isSameId(userId, taskListToEdit.author)) {
     return { error: { message: onlyCreatorEdit } };
   }
 
