@@ -16,12 +16,12 @@ const update = async (userData, taskListId, tasksListData) => {
   const createdBy = taskListToEdit.author;
   
   if (!isSameId(userId, createdBy)) {
-    return { err: { message: onlyCreatorEdit } };
+    return { error: { message: onlyCreatorEdit } };
   }
 
-  await recipesModel.update(taskListId, tasksListData);
+  await taskListModel.update(taskListId, tasksListData);
 
-  return { ...taskListToEdit, ...tasksListData };
+  return { ...taskListToEdit, tasks: tasksListData };
 };
 
 module.exports = {

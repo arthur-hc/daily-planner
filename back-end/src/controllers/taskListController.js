@@ -15,6 +15,8 @@ const update = async (req, res) => {
   const tasksListData = req.body;
   const response = await taskListService.update(userData, taskListId, tasksListData);
 
+  const { error } = response;
+
   if (error) {
     return res.status(UNAUTHORIZED).json(error);
   }

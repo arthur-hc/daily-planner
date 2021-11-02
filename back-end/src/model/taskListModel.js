@@ -13,10 +13,10 @@ const create = async (listData) => {
   return response;
 };
 
-const update = async (id, tasks) => {
+const update = async (id, taskData) => {
   const db = await mongoConnection.getConnection();
   const response = await db.collection('taskList')
-  .updateOne({ _id: ObjectId(id) }, { $set: tasks });
+  .updateOne({ _id: ObjectId(id) }, { $set: { tasks: taskData } });
   return response;
 };
 
