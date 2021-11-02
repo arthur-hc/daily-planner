@@ -23,7 +23,22 @@ const updateTasksById = async (req, res) => {
   return res.status(OK).json(response);
 };
 
+const renameTaskListById = async (req, res) => {
+  const { userData } = req;
+  const taskListId = req.params.id;
+  const { taskListName } = req.body;
+  const response = await taskListService.renameTaskListById(userData, taskListId, taskListName);
+
+  const { error } = response;
+
+  if (error) {
+    return res.status(UNAUTHORIZED).json(error);
+  }
+  return res.status(OK).json(response);
+};
+
 module.exports = {
   create,
   updateTasksById,
+  renameTaskListById,
 };

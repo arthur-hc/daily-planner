@@ -20,8 +20,16 @@ const updateTasksById = async (id, taskData) => {
   return response;
 };
 
+const renameTaskListById = async (id, taskListName) => {
+  const db = await mongoConnection.getConnection();
+  const response = await db.collection('taskList')
+  .updateOne({ _id: ObjectId(id) }, { $set: { taskListName } });
+  return response;
+};
+
 module.exports = {
   findTaskListById,
   create,
   updateTasksById,
+  renameTaskListById,
 };
