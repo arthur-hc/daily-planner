@@ -1,9 +1,9 @@
 const express = require('express');
 const validationJWT = require('../auth/validationJWT');
-const tasksListsController = require('../../controllers/tasksListsController');
+const taskListController = require('../../controllers/taskListController');
 
 const router = express.Router();
 
-router.post('/', validationJWT, tasksListsController.create);
+router.post('/', validationJWT, taskListController.create);
 
 module.exports = router;
