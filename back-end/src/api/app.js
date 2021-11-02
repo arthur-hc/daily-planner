@@ -10,4 +10,6 @@ app.use('/register', require('./routes/registerRoutes'));
 
 app.use('/login', require('./routes/loginRoutes'));
 
+app.use('/taskscomands', require('./routes/tasksListsRoutes'));
+
 module.exports = app;
