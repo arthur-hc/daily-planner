@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
   const { id } = req.params;
   const isValidId = ObjectId.isValid(id);
 
-  if(!isValidId) return res.status(BAD_REQUEST).json(invalidId);
+  if (!isValidId) return res.status(BAD_REQUEST).json(invalidId);
 
   next();
 };

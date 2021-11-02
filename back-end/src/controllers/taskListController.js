@@ -9,11 +9,11 @@ const create = async (req, res) => {
   return res.status(CREATED).json(response);
 };
 
-const update = async (req, res) => {
+const updateTasksById = async (req, res) => {
   const { userData } = req;
   const taskListId = req.params.id;
   const tasksListData = req.body;
-  const response = await taskListService.update(userData, taskListId, tasksListData);
+  const response = await taskListService.updateTasksById(userData, taskListId, tasksListData);
 
   const { error } = response;
 
@@ -25,5 +25,5 @@ const update = async (req, res) => {
 
 module.exports = {
   create,
-  update,
+  updateTasksById,
 };
