@@ -4,7 +4,7 @@ const taskListService = require('../services/taskListService');
 const createTaskList = async (req, res) => {
   const { _id } = req.userData;
   const { taskListName } = req.body;
-  const response = await taskListService.create(_id, taskListName);
+  const response = await taskListService.createTaskList(_id, taskListName);
 
   return res.status(CREATED).json(response);
 };
