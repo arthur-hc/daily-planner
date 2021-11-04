@@ -40,7 +40,7 @@ function LoginForms() {
       className="h-50"
       onSubmit={ handleLoginClick }
     >
-      {RedirectTo(shouldRedirect, '/myLists')}
+      {RedirectTo(shouldRedirect, '/mylists')}
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
