@@ -9,6 +9,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={ InitialPage } />
+        <Route exact path="/mylists" component={ MyListsPage } />
       </Switch>
     </BrowserRouter>
   );
