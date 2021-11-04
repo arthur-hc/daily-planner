@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container } from 'react-bootstrap';
+import { CardGroup, Container, Row, Col } from 'react-bootstrap';
+import ListCard from './ListCard';
 
 const UserList = ({ lists }) => {
   if (lists.length === 0) {
@@ -10,11 +11,15 @@ const UserList = ({ lists }) => {
   }
 
   return (
-    <Container>
-      {lists.map((list, index) => (
-        <span key={ index }>{list.taskListName}</span>
-      ))}
-    </Container>
+    <CardGroup>
+      <Row xs={ 1 } md={ 4 } className="g-1">
+        {lists.map((list, index) => (
+          <Col key={ index }>
+            <ListCard title={ list.taskListName } id={ 1 } />
+          </Col>
+        ))}
+      </Row>
+    </CardGroup>
   );
 };
 

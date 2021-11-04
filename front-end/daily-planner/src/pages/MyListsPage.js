@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Tabs, Tab } from 'react-bootstrap';
 import RedirectTo from '../components/RedirectTo';
 import verifyTokenExistance from '../token/verifyTokenExistance';
 import fetchGetUserLists from '../endpoints/fetchGetUserLists';
@@ -29,8 +29,28 @@ function MyListsPage() {
   return (
     <Container className="d-flex justify-content-center vh-100 vw-100">
       {RedirectTo(shouldRedirect, '/')}
-      <h1>My List Page</h1>
-      <UserLists lists={ userListsData } />
+      <div
+        className="border border-1 border-dark rounded p-3
+        d-flex-column justify-content-center align-items-center"
+      >
+        <h1>My List Page</h1>
+        <Tabs
+          defaultActiveKey="login"
+          id="uncontrolled-tab-example"
+          className="mb-3 d-flex"
+        >
+          <Tab
+            eventKey="login"
+            title="Login"
+            className="height-300"
+          >
+            <UserLists lists={ userListsData } />
+          </Tab>
+          <Tab eventKey="register" title="Register" className="height-400">
+            <UserLists lists={ userListsData } />
+          </Tab>
+        </Tabs>
+      </div>
     </Container>
   );
 }
