@@ -9,7 +9,7 @@ const register = async (req, res) => {
   const { error } = response;
 
   if (error) {
-    return res.status(CONFLICT).json(error);
+    return res.status(CONFLICT).json(response);
   }
 
   return res.status(CREATED).json(response);
@@ -23,7 +23,7 @@ const login = async (req, res) => {
   const { error } = response;
 
   if (error) {
-    return res.status(UNAUTHORIZED).json(error);
+    return res.status(UNAUTHORIZED).json(response);
   }
 
   return res.status(OK).json(response);
