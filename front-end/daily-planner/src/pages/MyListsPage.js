@@ -27,10 +27,10 @@ function MyListsPage() {
   }, []);
 
   return (
-    <Container>
+    <Container className="d-flex justify-content-center vh-100 vw-100">
       {RedirectTo(shouldRedirect, '/')}
       <h1>My List Page</h1>
-      <UserLists list={ userListsData } />
+      <UserLists lists={ userListsData } />
     </Container>
   );
 }
