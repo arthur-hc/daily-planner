@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import fetchLogin from '../endpoints/fetchLogin';
+import RedirectTo from './RedirectTo';
+import setTokenInLocalStorage from '../token/setTokenInLocalStorage';
 
 function LoginForms() {
+  const [shouldRedirect, setShouldRedirect] = useState(false);
   const [invalidEntries, setInvalidEntries] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,16 +16,18 @@ function LoginForms() {
     const { error } = response;
     if (error) {
       setInvalidEntries(true);
+      return null;
     }
+    setTokenInLocalStorage(response.token);
+    setShouldRedirect(true);
   };
 
-  const alert = () => {
+  const alertInvalidData = () => {
     if (invalidEntries) {
       return (
         <Alert
           className="m-2"
           variant="danger"
-          onClick={ () => setInvalidEntries(false) }
         >
           Incorrect Email or Password
         </Alert>
@@ -35,6 +40,7 @@ function LoginForms() {
       className="h-50 p-3 border border-1 border-dark rounded max-height-300"
       onSubmit={ handleLoginClick }
     >
+      {RedirectTo(shouldRedirect, '/myLists')}
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
@@ -44,9 +50,6 @@ function LoginForms() {
           required
           onChange={ ({ target: { value } }) => setEmail(value) }
         />
-        <Form.Control.Feedback type="invalid">
-          Please provide a valid Email.
-        </Form.Control.Feedback>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
@@ -61,7 +64,7 @@ function LoginForms() {
       <Button variant="primary" type="submit">
         Login
       </Button>
-      {alert()}
+      {alertInvalidData()}
     </Form>
   );
 }
