@@ -53,13 +53,12 @@ function RegisterForms() {
 
   return (
     <Form
-      className="h-50"
+      className="width-300"
       onSubmit={ handleRegisterClick }
     >
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Name</Form.Label>
         <Form.Control
-          type="string"
           placeholder="Enter name"
           value={ name }
           required
