@@ -4,6 +4,7 @@ import RedirectTo from '../components/RedirectTo';
 import verifyTokenExistance from '../token/verifyTokenExistance';
 import fetchGetUserLists from '../endpoints/fetchGetUserLists';
 import UserLists from '../components/UserLists';
+import NewListForms from '../components/NewListForms';
 
 function MyListsPage() {
   const [shouldRedirect, setShouldRedirect] = useState(false);
@@ -51,7 +52,7 @@ function MyListsPage() {
             title="New List"
             className="height-400"
           >
-            <UserLists lists={ userListsData } />
+            <NewListForms />
           </Tab>
         </Tabs>
       </div>
