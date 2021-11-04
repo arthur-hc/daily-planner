@@ -14,7 +14,7 @@ const UserList = ({ lists }) => {
 
   return (
     <CardGroup>
-      <Row xs={ 1 } md={ 4 } className="g-1">
+      <Row xs={ 1 } md={ 4 } className="g-1 w-100">
         {lists.map(({ taskListName, _id }, index) => (
           <Col key={ index }>
             <ListCard title={ taskListName } id={ _id } />

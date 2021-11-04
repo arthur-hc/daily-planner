@@ -55,12 +55,6 @@ function MyListsPage() {
             <NewListForms />
           </Tab>
           <Tab
-            eventKey="delete"
-            title="Delete"
-          >
-            <MyListsOptions />
-          </Tab>
-          <Tab
             eventKey="options"
             title="Options"
           >
