@@ -5,6 +5,7 @@ import verifyTokenExistance from '../token/verifyTokenExistance';
 import fetchGetUserLists from '../endpoints/fetchGetUserLists';
 import UserLists from '../components/UserLists';
 import NewListForms from '../components/NewListForms';
+import MyListsOptions from '../components/MyListsOptions';
 
 function MyListsPage() {
   const [shouldRedirect, setShouldRedirect] = useState(false);
@@ -52,6 +53,12 @@ function MyListsPage() {
             title="New List"
           >
             <NewListForms />
+          </Tab>
+          <Tab
+            eventKey="options"
+            title="Options"
+          >
+            <MyListsOptions />
           </Tab>
         </Tabs>
       </div>
