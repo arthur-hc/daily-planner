@@ -39,6 +39,7 @@ function MyListsPage() {
           defaultActiveKey="myLists"
           id="uncontrolled-tab-example"
           className="mb-3 d-flex"
+          onClick={ () => getUserLists() }
         >
           <Tab
             eventKey="myLists"
