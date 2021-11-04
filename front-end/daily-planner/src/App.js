@@ -2,13 +2,13 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route } from 'react-router';
-import Login from './pages/Login';
+import InitialPage from './pages/InitialPage';
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={ Login } />
+        <Route exact path="/" component={ InitialPage } />
       </Switch>
     </BrowserRouter>
   );
