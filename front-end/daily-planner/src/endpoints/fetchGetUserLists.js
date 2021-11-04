@@ -2,7 +2,6 @@ import getTokenInLocalStorage from '../token/getTokenInLocalStorage';
 
 const fetchGetUserLists = async () => {
   const token = getTokenInLocalStorage();
-  const loginData = { email, password };
   const response = await fetch('http://localhost:3000/api/tasklist',
     {
       headers: {
@@ -10,8 +9,7 @@ const fetchGetUserLists = async () => {
         'Content-Type': 'application/json',
         Authorization: token,
       },
-      method: 'POST',
-      body: JSON.stringify(loginData),
+      method: 'GET',
     });
   const json = await response.json();
   return json;
