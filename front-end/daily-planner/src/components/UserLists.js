@@ -6,16 +6,18 @@ import ListCard from './ListCard';
 const UserList = ({ lists }) => {
   if (lists.length === 0) {
     return (
-      <Container>NO LISTS YET</Container>
+      <Container>
+        NO LISTS YET
+      </Container>
     );
   }
 
   return (
     <CardGroup>
       <Row xs={ 1 } md={ 4 } className="g-1">
-        {lists.map((list, index) => (
+        {lists.map(({ taskListName, _id }, index) => (
           <Col key={ index }>
-            <ListCard title={ list.taskListName } id={ 1 } />
+            <ListCard title={ taskListName } id={ _id } />
           </Col>
         ))}
       </Row>

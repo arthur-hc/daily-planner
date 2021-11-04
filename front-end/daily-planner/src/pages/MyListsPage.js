@@ -31,22 +31,26 @@ function MyListsPage() {
       {RedirectTo(shouldRedirect, '/')}
       <div
         className="border border-1 border-dark rounded p-3
-        d-flex-column justify-content-center align-items-center"
+        d-flex-column justify-content-center align-items-center vh-100 w-75"
       >
-        <h1>My List Page</h1>
+        <h1>My Lists</h1>
         <Tabs
-          defaultActiveKey="login"
+          defaultActiveKey="myLists"
           id="uncontrolled-tab-example"
           className="mb-3 d-flex"
         >
           <Tab
-            eventKey="login"
-            title="Login"
+            eventKey="myLists"
+            title="My Lists"
             className="height-300"
           >
             <UserLists lists={ userListsData } />
           </Tab>
-          <Tab eventKey="register" title="Register" className="height-400">
+          <Tab
+            eventKey="newList"
+            title="New List"
+            className="height-400"
+          >
             <UserLists lists={ userListsData } />
           </Tab>
         </Tabs>

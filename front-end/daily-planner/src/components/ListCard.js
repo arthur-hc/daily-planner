@@ -6,7 +6,7 @@ import taskListImg from '../img/tasklist.png';
 
 const ListCard = ({ title, id }) => (
   <Link to={ `/mylists/${id}` }>
-    <Card style={ { width: '10rem' } }>
+    <Card style={ { width: '10rem', height: '15rem' } }>
       <Card.Img variant="top" src={ taskListImg } style={ { width: '3rem' } } />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
