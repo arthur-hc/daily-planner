@@ -5,6 +5,7 @@ import verifyTokenExistance from '../token/verifyTokenExistance';
 
 function MyListsPage() {
   const [shouldRedirect, setShouldRedirect] = useState(false);
+  const [userLists, setUserLists] = useState([]);
 
   useEffect(() => {
     verifyTokenExistance(setShouldRedirect);
