@@ -9,14 +9,14 @@ function InitialPage() {
     >
       <div className="border border-1 border-dark rounded p-3 height-375">
         <Tabs
-          defaultActiveKey="home"
+          defaultActiveKey="login"
           id="uncontrolled-tab-example"
           className="mb-3 d-flex"
         >
-          <Tab eventKey="home" title="Home">
+          <Tab eventKey="login" title="Login">
             <LoginForms />
           </Tab>
-          <Tab eventKey="profile" title="Profile">
+          <Tab eventKey="register" title="Register">
             <h1>Register Forms</h1>
           </Tab>
         </Tabs>
