@@ -11,6 +11,10 @@ function App() {
       <Switch>
         <Route exact path="/" component={ InitialPage } />
         <Route exact path="/mylists" component={ MyListsPage } />
+        <Route
+          path="/mylists/:id"
+          render={ (props) => <MyListsPage { ...props } /> }
+        />
       </Switch>
     </BrowserRouter>
   );
