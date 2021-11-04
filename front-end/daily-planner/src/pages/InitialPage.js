@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Tabs, Tab } from 'react-bootstrap';
 import LoginForms from '../components/LoginForms';
 
 function InitialPage() {
@@ -7,7 +7,20 @@ function InitialPage() {
     <Container
       className="d-flex justify-content-center align-items-center vh-100 vw-100"
     >
-      <LoginForms />
+      <div className="border border-1 border-dark rounded p-3 height-375">
+        <Tabs
+          defaultActiveKey="home"
+          id="uncontrolled-tab-example"
+          className="mb-3 d-flex"
+        >
+          <Tab eventKey="home" title="Home">
+            <LoginForms />
+          </Tab>
+          <Tab eventKey="profile" title="Profile">
+            <h1>Register Forms</h1>
+          </Tab>
+        </Tabs>
+      </div>
     </Container>
   );
 }

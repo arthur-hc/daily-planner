@@ -37,7 +37,7 @@ function LoginForms() {
 
   return (
     <Form
-      className="h-50 p-3 border border-1 border-dark rounded max-height-300"
+      className="h-50"
       onSubmit={ handleLoginClick }
     >
       {RedirectTo(shouldRedirect, '/myLists')}
