@@ -14,7 +14,7 @@ function NewListForms() {
     setNewTaskListName(empty);
   };
 
-  const handleRegisterClick = async (event) => {
+  const handleCreateClick = async (event) => {
     event.preventDefault();
     const response = await fetchNewTaskList(newTaskListName);
     const { error } = response;
@@ -44,7 +44,7 @@ function NewListForms() {
     <Container>
       {RedirectTo(shouldRedirect, '/')}
       <Form
-        onSubmit={ handleRegisterClick }
+        onSubmit={ handleCreateClick }
         className="w-50"
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
