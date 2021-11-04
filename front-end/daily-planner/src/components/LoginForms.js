@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
+import fetchLogin from '../endpoints/fetchLogin';
 
 function LoginForms() {
   const [invalidEntries, setInvalidEntries] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLoginClick = (event) => {
+  const handleLoginClick = async (event) => {
     event.preventDefault();
+    const response = await fetchLogin(email, password);
+    console.log(response);
     if (!email.includes('arthur')) {
       setInvalidEntries(true);
     }
@@ -17,11 +20,11 @@ function LoginForms() {
     if (invalidEntries) {
       return (
         <Alert
-          className="m-1"
+          className="m-2"
           variant="danger"
           onClick={ () => setInvalidEntries(false) }
         >
-          Incorrect Email or password
+          Incorrect Email or Password
         </Alert>
       );
     }
@@ -29,7 +32,7 @@ function LoginForms() {
 
   return (
     <Form
-      className="h-50 p-3 border border-1 border-dark rounded"
+      className="h-50 p-3 border border-1 border-dark rounded max-height-300"
       onSubmit={ handleLoginClick }
     >
       <Form.Group className="mb-3" controlId="formBasicEmail">
