@@ -13,7 +13,7 @@ function MyListsPage() {
     const response = await fetchGetUserLists();
     if (response.error) {
       // eslint-disable-next-line no-alert
-      alert('Invalid Token');
+      alert('Invalid Token or Token Expired');
       setShouldRedirect(true);
       return;
     }
