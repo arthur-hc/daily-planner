@@ -1,6 +1,6 @@
-const fetch = async (email, password) => {
+const fetchLogin = async (email, password) => {
   const loginData = { email, password };
-  const response = await fetch('http://localhost:3000/',
+  const response = await fetch('http://localhost:3000/api/login',
     {
       headers: {
         Accept: 'application/json',
@@ -9,9 +9,8 @@ const fetch = async (email, password) => {
       method: 'POST',
       body: JSON.stringify(loginData),
     });
-  console.log(response);
-  // const json = await response.json();
-  // return json;
+  const json = await response.json();
+  return json;
 };
 
-export default fetch;
+export default fetchLogin;

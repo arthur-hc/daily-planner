@@ -10,8 +10,8 @@ function LoginForms() {
   const handleLoginClick = async (event) => {
     event.preventDefault();
     const response = await fetchLogin(email, password);
-    console.log(response);
-    if (!email.includes('arthur')) {
+    const { error } = response;
+    if (error) {
       setInvalidEntries(true);
     }
   };

@@ -20,7 +20,7 @@ const login = async (dataToLogin) => {
   const userData = await usersModel.findUserByEmail(email);
   
   if (!userData || userData.password !== password) {
-    return { err: { message: incorrectUserOrPass } };
+    return { error: { message: incorrectUserOrPass } };
   }
 
   const { _id } = userData;

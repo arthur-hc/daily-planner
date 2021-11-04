@@ -18,7 +18,7 @@ const updateTasksById = async (req, res) => {
   const { error } = response;
 
   if (error) {
-    return res.status(UNAUTHORIZED).json(error);
+    return res.status(UNAUTHORIZED).json(response);
   }
   return res.status(OK).json(response);
 };
@@ -32,7 +32,7 @@ const renameTaskListById = async (req, res) => {
   const { error } = response;
 
   if (error) {
-    return res.status(UNAUTHORIZED).json(error);
+    return res.status(UNAUTHORIZED).json(response);
   }
   return res.status(OK).json(response);
 };
@@ -45,7 +45,7 @@ const deleteTaskListById = async (req, res) => {
   const { error } = response;
 
   if (error) {
-    return res.status(UNAUTHORIZED).json(error);
+    return res.status(UNAUTHORIZED).json(response);
   }
   return res.status(OK).json(response);
 };
@@ -65,7 +65,7 @@ const getTaskListById = async (req, res) => {
   const { error } = response;
 
   if (error) {
-    return res.status(UNAUTHORIZED).json(error);
+    return res.status(UNAUTHORIZED).json(response);
   }
 
   return res.status(OK).json(response);
