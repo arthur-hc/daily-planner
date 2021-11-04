@@ -3,10 +3,11 @@ import { Container } from 'react-bootstrap';
 import RedirectTo from '../components/RedirectTo';
 import verifyTokenExistance from '../token/verifyTokenExistance';
 import fetchGetUserLists from '../endpoints/fetchGetUserLists';
+import UserLists from '../components/UserLists';
 
 function MyListsPage() {
   const [shouldRedirect, setShouldRedirect] = useState(false);
-  const [userLists, setUserLists] = useState([]);
+  const [userListsData, setUserListsData] = useState([]);
 
   const getUserLists = async () => {
     const response = await fetchGetUserLists();
@@ -16,8 +17,7 @@ function MyListsPage() {
       setShouldRedirect(true);
       return;
     }
-    setUserLists(response);
-    return userLists;
+    setUserListsData(response);
   };
 
   useEffect(() => {
@@ -30,6 +30,7 @@ function MyListsPage() {
     <Container>
       {RedirectTo(shouldRedirect, '/')}
       <h1>My List Page</h1>
+      <UserLists list={ userListsData } />
     </Container>
   );
 }
