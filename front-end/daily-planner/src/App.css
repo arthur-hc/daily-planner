@@ -4,6 +4,10 @@ body {
   align-items: center;
 }
 
-.height-375 {
-  height: 375px;
+.height-300 {
+  height: 300px;
+}
+
+.height-400 {
+  height: 400px;
 }

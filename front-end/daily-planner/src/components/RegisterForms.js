@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
-function LoginForms() {
+function RegisterForms() {
   const [invalidEntries, setInvalidEntries] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -74,4 +74,4 @@ function LoginForms() {
   );
 }
 
-export default LoginForms;
+export default RegisterForms;
