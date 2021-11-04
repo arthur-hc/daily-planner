@@ -28,11 +28,11 @@ function MyListsPage() {
   }, []);
 
   return (
-    <Container className="d-flex justify-content-center vh-100 vw-100">
+    <Container className="d-flex justify-content-center min-height-100vh vw-100">
       {RedirectTo(shouldRedirect, '/')}
       <div
         className="border border-1 border-dark rounded p-3
-        d-flex-column justify-content-center align-items-center vh-100 w-75"
+        d-flex-column justify-content-center align-items-center w-75"
       >
         <h1>My Lists</h1>
         <Tabs
@@ -44,14 +44,12 @@ function MyListsPage() {
           <Tab
             eventKey="myLists"
             title="My Lists"
-            className="height-300"
           >
             <UserLists lists={ userListsData } />
           </Tab>
           <Tab
             eventKey="newList"
             title="New List"
-            className="height-400"
           >
             <NewListForms />
           </Tab>
