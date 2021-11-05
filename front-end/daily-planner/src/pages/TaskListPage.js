@@ -22,6 +22,7 @@ function TaskListPage({ match }) {
       setShouldRedirect(true);
       return;
     }
+    console.log(response);
     setListData(response);
   };
 

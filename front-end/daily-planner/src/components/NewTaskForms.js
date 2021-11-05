@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button, Alert, Container } from 'react-bootstrap';
-import fetchEditTaskList from '../endpoints/fetchNewTaskList';
+import fetchEditTaskList from '../endpoints/fetchEditTaskList';
 import RedirectTo from './RedirectTo';
 
 function NewTaskForms({ taskListData }) {
@@ -10,11 +10,13 @@ function NewTaskForms({ taskListData }) {
   const [feedBack, setFeedBack] = useState(false);
   const [newTaskName, setNewTaskName] = useState('');
 
+  const { tasks } = taskListData;
+
   const setRegisteredCaseStates = () => {
     const empty = '';
     setAlertVariant('success');
     setFeedBack('Created!');
-    newTaskName(empty);
+    setNewTaskName(empty);
   };
 
   const setFailureCaseStates = () => {
@@ -23,19 +25,32 @@ function NewTaskForms({ taskListData }) {
   };
 
   const taskExists = () => {
-    const { tasks: { ToDo, InProgress, Done } } = taskListData;
-    const allTasks = [...ToDo, ...InProgress, ...Done];
-    const searchResult = allTasks.find((task) => task === newTaskName);
-    return searchResult;
+    if (tasks) {
+      const { ToDo, InProgress, Done } = tasks;
+      const allTasks = [...ToDo, ...InProgress, ...Done];
+      const searchResult = allTasks.find((task) => task === newTaskName);
+      return searchResult;
+    }
   };
 
   const handleCreateClick = async (event) => {
     event.preventDefault();
+    // THIS IF PREVENT CRASH WHEN TASKS ARE LODING
+    if (!tasks) {
+      // eslint-disable-next-line no-alert
+      alert('Await, tasks are loading');
+      return;
+    }
+
     if (taskExists()) {
       setFailureCaseStates();
       return;
     }
-    const response = await fetchEditTaskList(newTaskName);
+
+    const { ToDo } = tasks;
+    ToDo.push(newTaskName);
+
+    const response = await fetchEditTaskList(taskListData);
     const { error } = response;
     if (error) {
       // eslint-disable-next-line no-alert
