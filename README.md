@@ -13,13 +13,13 @@ A aplicação estará divida em duas partes:
 * Mongodb deve estar ativado
 
 ## Como rodar o projeto:
-* Fazer o clone do repositório com git@github.com:arthur-hc/daily-planner.git
-* Na pasta raiz entrar na pasta back-end
+* Fazer o clone do repositório com "git@github.com:arthur-hc/daily-planner.git"
+* Na raiz do projeto, entrar na pasta back-end
 * Abrir um terminal na pasta (caso tenha entrado pela interface de pastas)
-* npm start
-* Na pasta raiz entrar na pasta front-end
+* Dar o comando npm start
+* Na raiz do projeto, entrar na pasta front-end
 * Entrar na pasta daily-planner
 * Abrir um terminal na pasta (caso tenha entrado pela interface de pastas)
-* npm start
+* Dar o comando npm start
 
 PRONTO! A APLICAÇÃO ESTARÁ RODANDO COM SUA PARTE DE FRONT E BACK JUNTAS!
