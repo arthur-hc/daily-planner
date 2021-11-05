@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
   const token = req.headers.authorization;
 
   if (!token) {
-    return res.status(UNAUTHORIZED).json({ message: missingAuthToken });
+    return res.status(UNAUTHORIZED).json({ error: { message: missingAuthToken } });
   }
 
   try {
@@ -17,7 +17,7 @@ module.exports = async (req, res, next) => {
 
     const userTokenExists = await findUserByEmail(decoded.data.email);
     if (!userTokenExists) {
-      return res.status(UNAUTHORIZED).json({ message: jwtMalformed });
+      return res.status(UNAUTHORIZED).json({ error:{ message: jwtMalformed }});
     }
 
     const { _id, email } = userTokenExists;
@@ -26,6 +26,6 @@ module.exports = async (req, res, next) => {
 
     next();
   } catch (err) {
-    return res.status(UNAUTHORIZED).json({ message: jwtMalformed });
+    return res.status(UNAUTHORIZED).json({ error: { message: jwtMalformed } });
   }
 };
