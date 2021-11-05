@@ -2,10 +2,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Card, ListGroup } from 'react-bootstrap';
+import fetchEditTaskList from '../endpoints/fetchEditTaskList';
 
 const TaskManager = ({ tasksData, callBackToRefreshList }) => {
-  // const [shouldRedirect, setShouldRedirect] = useState(false);
-  // const [listData, setListData] = useState({});
   const { tasks } = tasksData;
 
   if (!tasks) {
@@ -15,10 +14,24 @@ const TaskManager = ({ tasksData, callBackToRefreshList }) => {
       </Container>
     );
   }
-  console.log(callBackToRefreshList);
-  console.log(tasksData.tasks);
+
   const { ToDo, InProgress, Done } = tasks;
-  console.log(ToDo, InProgress, Done);
+
+  const next = async (currentArray, nextArray, item) => {
+    const indexToRemove = currentArray.indexOf(item);
+    currentArray.splice(indexToRemove, 1);
+    nextArray.push(item);
+    await fetchEditTaskList(tasksData);
+    await callBackToRefreshList();
+  };
+
+  const back = async (currentArray, previusArray, item) => {
+    const indexToRemove = currentArray.indexOf(item);
+    currentArray.splice(indexToRemove, 1);
+    previusArray.push(item);
+    await fetchEditTaskList(tasksData);
+    await callBackToRefreshList();
+  };
 
   return (
     <Container className="d-flex-column">
@@ -26,7 +39,12 @@ const TaskManager = ({ tasksData, callBackToRefreshList }) => {
         <Card.Header>To Do:</Card.Header>
         <ListGroup variant="flush">
           {ToDo.map((task, index) => (
-            <ListGroup.Item key={ index }>{task}</ListGroup.Item>
+            <ListGroup.Item
+              key={ index }
+              onDoubleClick={ () => next(ToDo, InProgress, task) }
+            >
+              {task}
+            </ListGroup.Item>
           ))}
         </ListGroup>
       </Card>
@@ -34,7 +52,13 @@ const TaskManager = ({ tasksData, callBackToRefreshList }) => {
         <Card.Header>In Progress:</Card.Header>
         <ListGroup variant="flush">
           {InProgress.map((task, index) => (
-            <ListGroup.Item key={ index }>{task}</ListGroup.Item>
+            <ListGroup.Item
+              key={ index }
+              onDoubleClick={ () => next(InProgress, Done, task) }
+              onAuxClick={ () => back(InProgress, ToDo, task) }
+            >
+              {task}
+            </ListGroup.Item>
           ))}
         </ListGroup>
       </Card>
@@ -42,7 +66,13 @@ const TaskManager = ({ tasksData, callBackToRefreshList }) => {
         <Card.Header>Done:</Card.Header>
         <ListGroup variant="flush">
           {Done.map((task, index) => (
-            <ListGroup.Item key={ index }>{task}</ListGroup.Item>
+            <ListGroup.Item
+              key={ index }
+              onDoubleClick={ () => next(Done, [], task) }
+              onAuxClick={ () => back(Done, InProgress, task) }
+            >
+              {task}
+            </ListGroup.Item>
           ))}
         </ListGroup>
       </Card>
