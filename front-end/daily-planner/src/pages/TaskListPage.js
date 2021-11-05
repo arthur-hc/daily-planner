@@ -4,7 +4,7 @@ import { Container, Tabs, Tab } from 'react-bootstrap';
 import RedirectTo from '../components/RedirectTo';
 import verifyTokenExistance from '../token/verifyTokenExistance';
 import fetchGetListById from '../endpoints/fetchGetListById';
-import UserLists from '../components/UserLists';
+import TaskManager from '../components/TaskManager';
 import NewTaskForms from '../components/NewTaskForms';
 import TaskListOptions from '../components/TaskListOptions';
 
@@ -41,16 +41,19 @@ function TaskListPage({ match }) {
       >
         <h1>{taskListName}</h1>
         <Tabs
-          defaultActiveKey="=list"
+          defaultActiveKey="myList"
           id="uncontrolled-tab-example"
           className="mb-3 d-flex"
           onClick={ () => getTaskListById() }
         >
           <Tab
-            eventKey="list"
+            eventKey="myList"
             title="List"
           >
-            <UserLists lists={ [] } />
+            <TaskManager
+              tasksData={ listData }
+              callBackToRefreshList={ getTaskListById }
+            />
           </Tab>
           <Tab
             eventKey="newTask"
