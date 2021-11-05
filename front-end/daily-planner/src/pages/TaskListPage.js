@@ -62,7 +62,7 @@ function TaskListPage({ match }) {
             eventKey="options"
             title="Options"
           >
-            <TaskListOptions />
+            <TaskListOptions id={ id } />
           </Tab>
         </Tabs>
       </div>
