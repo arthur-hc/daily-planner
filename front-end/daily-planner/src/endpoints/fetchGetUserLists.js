@@ -2,7 +2,7 @@ import getTokenInLocalStorage from '../token/getTokenInLocalStorage';
 
 const fetchGetUserLists = async () => {
   const token = getTokenInLocalStorage();
-  const response = await fetch('http://localhost:3000/api/tasklist',
+  const response = await fetch('http://localhost:3001/api/tasklist',
     {
       headers: {
         Accept: 'application/json',

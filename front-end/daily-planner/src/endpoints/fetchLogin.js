@@ -1,6 +1,6 @@
 const fetchLogin = async (email, password) => {
   const loginData = { email, password };
-  const response = await fetch('http://localhost:3000/api/login',
+  const response = await fetch('http://localhost:3001/api/login',
     {
       headers: {
         Accept: 'application/json',
