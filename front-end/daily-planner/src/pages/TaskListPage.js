@@ -3,25 +3,26 @@ import PropTypes from 'prop-types';
 import { Container, Tabs, Tab } from 'react-bootstrap';
 import RedirectTo from '../components/RedirectTo';
 import verifyTokenExistance from '../token/verifyTokenExistance';
-import fetchGetUserLists from '../endpoints/fetchGetUserLists';
+import fetchGetListById from '../endpoints/fetchGetListById';
 import UserLists from '../components/UserLists';
-import NewListForms from '../components/NewListForms';
+import NewTaskForms from '../components/NewTaskForms';
 import MyListsOptions from '../components/MyListsOptions';
 
 function TaskListPage({ match }) {
   const [shouldRedirect, setShouldRedirect] = useState(false);
-  const [userListsData, setUserListsData] = useState([]);
+  const [listData, setListData] = useState({});
   const { id } = match.params;
+  const { taskListName } = listData;
 
   const getTaskListById = async () => {
-    const response = await fetchGetUserLists(id);
+    const response = await fetchGetListById(id);
     if (response.error) {
       // eslint-disable-next-line no-alert
       alert('Invalid Token or Token Expired');
       setShouldRedirect(true);
       return;
     }
-    setUserListsData(response);
+    setListData(response);
   };
 
   useEffect(() => {
@@ -37,24 +38,24 @@ function TaskListPage({ match }) {
         className="border border-1 border-dark rounded p-3
         d-flex-column justify-content-center align-items-center w-75"
       >
-        <h1>{id}</h1>
+        <h1>{taskListName}</h1>
         <Tabs
           defaultActiveKey="=list"
           id="uncontrolled-tab-example"
           className="mb-3 d-flex"
-          onClick={ () => getUserLists() }
+          onClick={ () => getTaskListById() }
         >
           <Tab
             eventKey="list"
             title="List"
           >
-            <UserLists lists={ userListsData } />
+            <UserLists lists={ [] } />
           </Tab>
           <Tab
             eventKey="newTask"
             title="New Task"
           >
-            <NewListForms />
+            <NewTaskForms taskListData={ listData } />
           </Tab>
           <Tab
             eventKey="options"
