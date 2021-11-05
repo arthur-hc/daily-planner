@@ -1,6 +1,6 @@
 const fetchRegister = async (name, email, password) => {
   const registerData = { name, email, password };
-  const response = await fetch('http://localhost:3000/api/register',
+  const response = await fetch('http://localhost:3001/api/register',
     {
       headers: {
         Accept: 'application/json',
