@@ -16,11 +16,13 @@ A aplicação estará divida em duas partes:
 * Fazer o clone do repositório com o comando "git clone git@github.com:arthur-hc/daily-planner.git"
 * Na raiz do projeto, entrar na pasta back-end
 * Abrir um terminal na pasta (caso tenha entrado pela interface de pastas)
+* Dar o comando npm install
 * Dar o comando npm start
 * Manter este terminal rodando (abrir um novo terminal ou voltar para a interface de pastas)
 * Na raiz do projeto, entrar na pasta front-end
 * Entrar na pasta daily-planner
 * Abrir um terminal na pasta (caso tenha entrado pela interface de pastas)
+* Dar o comando npm install
 * Dar o comando npm start
 
 PRONTO! A APLICAÇÃO ESTARÁ RODANDO COM SUA PARTE DE FRONT E BACK JUNTAS!
