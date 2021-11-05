@@ -17,6 +17,7 @@ A aplicação estará divida em duas partes:
 * Na raiz do projeto, entrar na pasta back-end
 * Abrir um terminal na pasta (caso tenha entrado pela interface de pastas)
 * Dar o comando npm start
+* Manter este terminal rodando (abrir um novo terminal ou voltar para a interface de pastas)
 * Na raiz do projeto, entrar na pasta front-end
 * Entrar na pasta daily-planner
 * Abrir um terminal na pasta (caso tenha entrado pela interface de pastas)
