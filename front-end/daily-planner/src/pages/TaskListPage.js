@@ -6,7 +6,7 @@ import verifyTokenExistance from '../token/verifyTokenExistance';
 import fetchGetListById from '../endpoints/fetchGetListById';
 import UserLists from '../components/UserLists';
 import NewTaskForms from '../components/NewTaskForms';
-import MyListsOptions from '../components/MyListsOptions';
+import TaskListOptions from '../components/TaskListOptions';
 
 function TaskListPage({ match }) {
   const [shouldRedirect, setShouldRedirect] = useState(false);
@@ -62,7 +62,7 @@ function TaskListPage({ match }) {
             eventKey="options"
             title="Options"
           >
-            <MyListsOptions />
+            <TaskListOptions />
           </Tab>
         </Tabs>
       </div>
