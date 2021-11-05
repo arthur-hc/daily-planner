@@ -1,8 +1,8 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Card, ListGroup } from 'react-bootstrap';
 import fetchEditTaskList from '../endpoints/fetchEditTaskList';
+import TaskMangerInstructions from './TaskMangerInstructions';
 
 const TaskManager = ({ tasksData, callBackToRefreshList }) => {
   const { tasks } = tasksData;
@@ -35,6 +35,7 @@ const TaskManager = ({ tasksData, callBackToRefreshList }) => {
 
   return (
     <Container className="d-flex-column">
+      <TaskMangerInstructions />
       <Card className="m-4">
         <Card.Header>To Do:</Card.Header>
         <ListGroup variant="flush">
