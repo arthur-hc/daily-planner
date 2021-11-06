@@ -72,7 +72,7 @@ Abrir um novo terminal na raiz do projeto:
 ##### ☕ PRONTO! A APLICAÇÃO ESTARÁ RODANDO COM AS PARTES DE FRONT E BACK JUNTAS!
 
 
-## 📫 Contribuindo para Daily Planner
+## 📫 Contribuindo para o Daily Planner
 <!---Se o seu README for longo ou se você tiver algum processo ou etapas específicas que deseja que os contribuidores sigam, considere a criação de um arquivo CONTRIBUTING.md separado--->
 Para contribuir com <nome_do_projeto>, siga estas etapas:
 
@@ -100,5 +100,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
   </tr>
 </table>
+
+##### README utilizado como <a href="https://github.com/iuricode/readme-template/blob/main/README-repository/iuricode.md">referência</a>
 
 [⬆ Voltar ao topo](#daily-planner)<br>
