@@ -4,21 +4,6 @@ Este projeto visa entregar uma solução para o problema dado no desafio e teste
 
 > Projeto continuo, mesmo passada a data de entrega do desafio.
 
-### Ajustes, melhorias e possíveis novas features
-
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
-
-- [ ] Testes de integração
-- [ ] Testes por camada MSC
-- [ ] Testes RTL
-- [ ] Edição de nome da lista
-- [ ] Exibição de nome do usuário
-- [ ] Edição de dados do usuário
-- [ ] Adição de foto do usuário
-- [ ] Utilizar lib rescue p/ tratamento de erros
-- [ ] Aprimorar a funcionalidade de transição das tasks (Botões)
-
-
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
@@ -69,7 +54,21 @@ Abrir um novo terminal na raiz do projeto:
 
 `npm start`
 
-##### ☕ PRONTO! A APLICAÇÃO ESTARÁ RODANDO COM AS PARTES DE FRONT E BACK JUNTAS!
+☕ PRONTO! A APLICAÇÃO ESTARÁ RODANDO COM AS PARTES DE FRONT E BACK JUNTAS!
+
+## Ajustes, melhorias e possíveis novas features
+
+O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+
+- [ ] Testes de integração
+- [ ] Testes por camada MSC
+- [ ] Testes RTL
+- [ ] Edição de nome da lista
+- [ ] Exibição de nome do usuário
+- [ ] Edição de dados do usuário
+- [ ] Adição de foto do usuário
+- [ ] Utilizar lib rescue p/ tratamento de erros
+- [ ] Aprimorar a funcionalidade de transição das tasks (Botões)
 
 
 ## 📫 Contribuindo para o Daily Planner
