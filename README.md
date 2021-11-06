@@ -91,7 +91,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 <table>
   <tr>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/arthur-hc">
         <img src="https://avatars.githubusercontent.com/u/80549739?v=4" width="100px;" alt="Foto do Arthur Hermann no GitHub"/><br>
         <sub>
           <b>Arthur Hermann</b>
