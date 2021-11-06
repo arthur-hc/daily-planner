@@ -11,24 +11,19 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 * Possuir `mongodb` instalado
 * `Mongodb` deve estar ativado
 
-## Como rodar o projeto:
-* Fazer o clone do repositório com o comando "git clone git@github.com:arthur-hc/daily-planner.git"
-* Na raiz do projeto, entrar na pasta back-end
-* Abrir um terminal na pasta (caso tenha entrado pela interface de pastas)
-* Dar o comando npm install
-* Dar o comando npm start
-* Manter este terminal rodando (abrir um novo terminal ou voltar para a interface de pastas)
-* Na raiz do projeto, entrar na pasta front-end
-* Entrar na pasta daily-planner
-* Abrir um terminal na pasta (caso tenha entrado pela interface de pastas)
-* Dar o comando npm install
-* Dar o comando npm start
-
 ## 🚀 Instalando e rodando Daily Planner
 
 Para instalar e rodar o Daily Planner, siga estas etapas:
 
 Linux:
+- Fazer o clone do projeto na pasta desejada:
+
+`git clone git@github.com:arthur-hc/daily-planner.git`
+
+- Entrar na pasta do projeto
+
+`cd daily-planner`
+
 - Na pasta raiz do projeto, entrar na pasta back-end:
 
 `cd back-end`
